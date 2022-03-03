@@ -13,9 +13,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('dashboard');
-});
-Route::get('temp', function () {
-    return view('layouts.template');
-});
+// Route::get('/', function () {
+//     return view('dashboard.view');
+// });
+
+//Route Dashboard
+use App\Http\Controllers\DashboardController;
+Route::get('/', [DashboardController::class, 'index']);
+
+//Route Mahasiswa
+use App\Http\Controllers\MahasiswaController;
+Route::get('mahasiswa', [MahasiswaController::class, 'index']);
