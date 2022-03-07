@@ -24,3 +24,19 @@ Route::get('/', [DashboardController::class, 'index']);
 //Route Mahasiswa
 use App\Http\Controllers\MahasiswaController;
 Route::get('mahasiswa', [MahasiswaController::class, 'index']);
+
+//Route Dosen
+use App\Http\Controllers\DosenController;
+Route::get('dosen', [DosenController::class, 'index']);
+
+//Route Barang
+use App\Http\Controllers\BarangController;
+Route::get('barang', [BarangController::class, 'index']);
+
+//Route Kategori
+use App\Http\Controllers\KategoriController;
+Route::get('kategori', [KategoriController::class, 'index']);
+
+//Route Satuan
+use App\Http\Controllers\SatuanController;
+Route::get('satuan', [SatuanController::class, 'index']);

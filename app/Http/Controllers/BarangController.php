@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\barang;
+use App\Models\Barang;
+use App\Models\Kategori;
+use App\Models\Satuan;
 use Illuminate\Http\Request;
+use DB;
 
 class BarangController extends Controller
 {
@@ -14,7 +17,10 @@ class BarangController extends Controller
      */
     public function index()
     {
-        //
+        $barang = Barang::join('kategoris', 'kategoris.id', '=', 'barangs.kategori_id')
+        ->join('satuans', 'satuans.id', '=', 'barangs.satuan_id')
+        ->get(['barangs.*', 'kategoris.name as k_name', 'satuans.name as s_name']);
+        return view('barang.index', compact('barang'));
     }
 
     /**

@@ -13,7 +13,7 @@
                 </div>
                 <div class="card-wrap">
                   <div class="card-header">
-                    <h4>Total Pengguna</h4>
+                    <a href="#"><h4>Total Pengguna</h4></a>
                   </div>
                   <div class="card-body">
                     <div class="count">{{$user}}</div>
@@ -28,7 +28,7 @@
                 </div>
                 <div class="card-wrap">
                   <div class="card-header">
-                    <h4>Total Mahasiswa</h4>
+                    <a href="mahasiswa"><h4>Total Mahasiswa</h4></a>
                   </div>
                   <div class="card-body">
                     <div class="count">{{$mahasiswa}}</div>

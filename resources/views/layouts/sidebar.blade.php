@@ -15,25 +15,23 @@
               <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-user"></i> <span>Data Pengguna</span></a>
                 <ul class="dropdown-menu">
                   <li><a class="nav-link" href="mahasiswa">Mahasiswa</a></li>
-                  <li><a class="nav-link" href="layout-transparent.html">Dosen</a></li> 
+                  <li><a class="nav-link" href="dosen">Dosen</a></li> 
                 </ul>
               </li>
               <li class="nav-item dropdown">
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-folder"></i></i> <span>Data Master</span></a>
                 <ul class="dropdown-menu">
                 <li class="menu-header">Pilih Menu</li>
-                  <li><a class="nav-link" href="layout-default.html">Data Barang</a></li>
-                  <li><a class="nav-link" href="layout-transparent.html">Kategori Barang</a></li>
-                  <li><a class="nav-link" href="layout-top-navigation.html">Satuan Barang</a></li>
+                  <li><a class="nav-link" href="barang">Data Barang</a></li>
+                  <li><a class="nav-link" href="kategori">Kategori Barang</a></li>
+                  <li><a class="nav-link" href="satuan">Satuan Barang</a></li>
                 </ul>
               </li>
               <li class="nav-item dropdown">
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-file"></i></i> <span>Laporan</span></a>
                 <ul class="dropdown-menu">
                 <li class="menu-header">Pilih Menu</li>
-                  <li><a class="nav-link" href="layout-default.html">Data Barang</a></li>
-                  <li><a class="nav-link" href="layout-transparent.html">Kategori Barang</a></li>
-                  <li><a class="nav-link" href="layout-top-navigation.html">Satuan Barang</a></li>
+                  <li><a class="nav-link" href="layout-default.html">Laporan Barang</a></li>
                 </ul>
               </li>
             </ul>

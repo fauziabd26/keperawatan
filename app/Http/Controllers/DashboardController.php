@@ -14,6 +14,6 @@ class DashboardController extends Controller
         $mahasiswa = Mahasiswa::count();
         $barang = Barang::count();
 
-        return view('dashboard.view', compact('user','mahasiswa','barang'));
+        return view('dashboard.index', compact('user','mahasiswa','barang'));
     }
 }

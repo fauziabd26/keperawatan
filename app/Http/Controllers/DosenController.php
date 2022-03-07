@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Satuan;
+use App\Models\Dosen;
 use Illuminate\Http\Request;
 
-class SatuanController extends Controller
+class DosenController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class SatuanController extends Controller
      */
     public function index()
     {
-        $satuan = Satuan::all();
-        return view('satuan.index', compact('satuan'));
+        $dosen = Dosen::all();
+        return view('dosen.index', compact('dosen'));
     }
 
     /**
@@ -42,10 +42,10 @@ class SatuanController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\satuan  $satuan
+     * @param  \App\Models\Dosen  $dosen
      * @return \Illuminate\Http\Response
      */
-    public function show(satuan $satuan)
+    public function show(Dosen $dosen)
     {
         //
     }
@@ -53,10 +53,10 @@ class SatuanController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\satuan  $satuan
+     * @param  \App\Models\Dosen  $dosen
      * @return \Illuminate\Http\Response
      */
-    public function edit(satuan $satuan)
+    public function edit(Dosen $dosen)
     {
         //
     }
@@ -65,10 +65,10 @@ class SatuanController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\satuan  $satuan
+     * @param  \App\Models\Dosen  $dosen
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, satuan $satuan)
+    public function update(Request $request, Dosen $dosen)
     {
         //
     }
@@ -76,10 +76,10 @@ class SatuanController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\satuan  $satuan
+     * @param  \App\Models\Dosen  $dosen
      * @return \Illuminate\Http\Response
      */
-    public function destroy(satuan $satuan)
+    public function destroy(Dosen $dosen)
     {
         //
     }
