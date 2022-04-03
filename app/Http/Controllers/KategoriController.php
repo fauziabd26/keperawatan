@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 
 class KategoriController extends Controller
 {
+    public function __construct()
+    {
+        $this->Kategori = new Kategori();
+    }
     /**
      * Display a listing of the resource.
      *
@@ -25,7 +29,7 @@ class KategoriController extends Controller
      */
     public function create()
     {
-        //
+        return view('kategori.add');
     }
 
     /**
@@ -36,7 +40,21 @@ class KategoriController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Request()->validate([
+            'id'            => 'required|unique:kategoris,id|max:255',
+            'name'          => 'required',
+            ],[
+                'id.required'       =>'id tidak boleh kosong',
+                'id.unique'         =>'id sudah terpakai',
+                'id.max'            =>'id max 255 karakter',
+                'name.required'     =>'Nama Kategori tidak boleh kosong',
+            ]);
+            $datas = [
+                'id'            => Request()->id,
+                'name'          => Request()->name,
+            ];
+            $this->Kategori->addData($datas);
+            return redirect()->route('index_kategori')->with('pesan','Data Berhasil Disimpan');
     }
 
     /**
@@ -56,9 +74,10 @@ class KategoriController extends Controller
      * @param  \App\Models\kategori  $kategori
      * @return \Illuminate\Http\Response
      */
-    public function edit(kategori $kategori)
+    public function edit($id)
     {
-        //
+        $kategori = Kategori::findOrFail($id);
+        return view('kategori.edit',compact('kategori'));
     }
 
     /**
@@ -68,9 +87,13 @@ class KategoriController extends Controller
      * @param  \App\Models\kategori  $kategori
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, kategori $kategori)
+    public function update(Request $request, $id)
     {
-        //
+        $kategori = Kategori::find($id);
+
+        $kategori->name = $request->name;
+        $kategori->save();
+        return redirect('/kategori')->with('pesan', 'Data berhasil diubah');
     }
 
     /**
@@ -79,8 +102,14 @@ class KategoriController extends Controller
      * @param  \App\Models\kategori  $kategori
      * @return \Illuminate\Http\Response
      */
-    public function destroy(kategori $kategori)
+    public function destroy($id)
     {
-        //
+        try {
+            $kategori = Kategori::find($id);
+            $kategori->delete();
+            return redirect('/kategori')->with('delete', 'Data Berhasil Dihapus');
+        } catch (\Throwable $th) {
+            return redirect('/kategori')->withErrors('Data gagal Dihapus');
+        }
     }
 }

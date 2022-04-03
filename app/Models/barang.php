@@ -1,11 +1,22 @@
 <?php
-
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
-class barang extends Model
+class Barang extends Model
 {
-    use HasFactory;
+    public function allData()
+    {
+        return DB::table('barangs')
+        ->join('kategoris', 'kategoris.id', '=', 'barangs.kategori_id')
+        ->join('satuans', 'satuans.id', '=', 'barangs.satuan_id')
+        ->get(['barangs.*', 'kategoris.name as k_name', 'satuans.name as s_name']);
+    }
+    public function addData($data)
+    {
+        DB::table('barangs')->insert($data);
+    }
+
 }
