@@ -20,12 +20,12 @@
                         </a>
                     </div>
                 </div>
-                <form action="{{ route('post_satuan') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('post_satuan') }}" method="POST">
                     @csrf    
                     <div class="row">
                         <div class="form-group col-6 col-md-3 col-lg-3">    
                             <label class="control-label" for="id">Kode Satuan</label>
-                            <input type="text" name="id" class="form-control" value="{{ old('id') }}">
+                            <input type="number" name="id" class="form-control" value="{{ old('id') }}">
                             <div class="text-danger">
                                @error('id')
                                    {{ $message }}
@@ -33,13 +33,13 @@
                             </div>
                         </div>
                         <div class="form-group col-6 col-md-3 col-lg-3">    
-                                <label class="control-label" for="name">Nama Satuan</label>
-                                <input type="text" name="name" class="form-control" value="{{ old('name') }}">
-                                <div class="text-danger">
-                                    @error('name')
-                                        {{ $message }}
-                                    @enderror
-                                </div>
+                            <label class="control-label" for="name">Nama Satuan</label>
+                            <input type="text" name="name" class="form-control" value="{{ old('name') }}">
+                            <div class="text-danger">
+                                @error('name')
+                                    {{ $message }}
+                                @enderror
+                            </div>
                         </div>
                     </div>
                     <div class="form-group">
@@ -49,6 +49,5 @@
             </div>
         </div>
     </div>
-
 </section>
 @stop

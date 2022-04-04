@@ -2,7 +2,7 @@
 
 @section('content')
 <section class="section">
-<div class="section-header">
+    <div class="section-header">
         <h1>Tambah Data Barang</h1>
         <div class="section-header-breadcrumb">
             <div class="breadcrumb-item active"><a href="/">Dashboard</a></div>
@@ -24,7 +24,7 @@
                     <div class="row">
                         <div class="form-group col-6 col-md-3 col-lg-3">    
                             <label class="control-label" for="id">Kode Barang</label>
-                            <input type="text" name="id" class="form-control" value="{{ old('id') }}">
+                            <input type="number" name="id" class="form-control" value="{{ old('id') }}">
                             <div class="text-danger">
                                @error('id')
                                    {{ $message }}
@@ -52,15 +52,15 @@
                             </div>
                         </div>
                         <div class="form-group col-6 col-md-3 col-lg-3">
-                            <label class="control-label" for="k_name">Kategori Barang</label>
-                            <select name="k_name" class="form-control">
-                                <option disabled> Semua Kategori </option>
+                            <label class="control-label" for="kategori_id">Kategori Barang</label>
+                            <select name="kategori_id" class="form-control">
+                                <option value="" disabled> Pilih Kategori Barang </option>
                                 @foreach ($kategoris as $data)
                                 <option value="{{ $data->id }}">{{ $data->name }}</option> 
                                 @endforeach
                             </select>
                             <div class="text-danger">
-                               @error('kategori')
+                               @error('kategori_id')
                                    {{ $message }}
                                @enderror
                             </div>
@@ -68,15 +68,15 @@
                     </div>
                     <div class="row">
                         <div class="form-group col-6 col-md-3 col-lg-3">
-                            <label class="control-label" for="s_name">Satuan Barang</label>
-                            <select name="s_name" class="form-control">
+                            <label class="control-label" for="satuan_id">Pilih Satuan Barang</label>
+                            <select name="satuan_id" class="form-control">
                                 <option disabled> Satuan Barang </option>
                                 @foreach ($satuans as $data)
                                 <option value="{{ $data->id }}">{{ $data->name }}</option> 
                                 @endforeach
                             </select>
                             <div class="text-danger">
-                               @error('satuan')
+                               @error('satuan_id')
                                    {{ $message }}
                                @enderror
                             </div>
@@ -98,6 +98,5 @@
             </div>
         </div>
     </div>
-
 </section>
-@stop
+@endsection

@@ -18,5 +18,11 @@ class Barang extends Model
     {
         DB::table('barangs')->insert($data);
     }
+    public function editData($id, $datas)
+    {
+        DB::table('barangs')
+        ->where('id',$id)
+        ->update($datas);
+    }
 
 }

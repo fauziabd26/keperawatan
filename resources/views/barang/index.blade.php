@@ -20,11 +20,20 @@
                     </div>
                 </div>
                 @if (session('pesan'))
-                swal({
-                    icon: "success",
-                    {{session('pesan')}}
-                });
-                @endif
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <strong>Success</strong> {{ session('pesan') }}.
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    @elseif (session('delete'))
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <strong>Success</strong> {{ session('delete') }}.
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    @endif
                 <div class="table-responsive">
                     <table id="example1" class="table table-bordered table-hover">
                         <thead class="thead-dark" align="center">
@@ -48,7 +57,7 @@
                             <td align="center">
                                 <button type="button" class="btn btn-success btn-sm mr-2" data-toggle="modal" data-target="#modal-lihat-{{ $data->id }}"><i class="fa fa-eye"> Lihat</i></button>
                                 <a href="/barang/edit/{{ $data->id }}" class="btn btn-warning btn-sm mr-2" title="Edit" data-toggle="tooltip"><i class="fa fa-pen" aria-hidden="true"> Edit</i></a>
-                                <a href="#" class="btn btn-danger btn-sm mr-2" title="Hapus" data-toggle="tooltip" onclick="return confirm('Anda yakin mau menghapus item ini ?')"><i class="fa fa-trash" aria-hidden="true"> Hapus</i></a>
+                                <a href="/barang/delete{{ $data->id }}" class="btn btn-danger btn-sm mr-2" title="Hapus" data-toggle="tooltip" onclick="return confirm('Anda yakin mau menghapus {{ $data->name }} ?')"><i class="fa fa-trash" aria-hidden="true"> Hapus</i></a>
                             </td>
                         </tr>
                         @endforeach

@@ -3,7 +3,7 @@
 @section('content')
 
 <section class="section">
-<div class="section-header">
+    <div class="section-header">
         <h1>Tambah Data Kategori</h1>
         <div class="section-header-breadcrumb">
             <div class="breadcrumb-item active"><a href="/">Dashboard</a></div>
@@ -25,7 +25,7 @@
                     <div class="row">
                         <div class="form-group col-6 col-md-3 col-lg-3">    
                             <label class="control-label" for="id">Kode Kategori</label>
-                            <input type="text" name="id" class="form-control" value="{{ old('id') }}">
+                            <input type="number" name="id" class="form-control" value="{{ old('id') }}">
                             <div class="text-danger">
                                @error('id')
                                    {{ $message }}
@@ -33,13 +33,13 @@
                             </div>
                         </div>
                         <div class="form-group col-6 col-md-3 col-lg-3">    
-                                <label class="control-label" for="name">Nama Kategori</label>
-                                <input type="text" name="name" class="form-control" value="{{ old('name') }}">
-                                <div class="text-danger">
-                                    @error('name')
-                                        {{ $message }}
-                                    @enderror
-                                </div>
+                            <label class="control-label" for="name">Nama Kategori</label>
+                            <input type="text" name="name" class="form-control" value="{{ old('name') }}">
+                            <div class="text-danger">
+                                @error('name')
+                                    {{ $message }}
+                                @enderror
+                            </div>
                         </div>
                     </div>
                     <div class="form-group">
@@ -49,6 +49,5 @@
             </div>
         </div>
     </div>
-
 </section>
-@stop
+@endsection

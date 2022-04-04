@@ -21,7 +21,8 @@
                     </div>
                 </div>
                 <form action="{{ route('update_kategori',$kategori->id) }}" method="POST">
-                {{ csrf_field() }}    
+                @csrf
+                @method('PUT')    
                     <div class="row">
                         <div class="form-group col-6 col-md-3 col-lg-3">    
                             <label class="control-label" for="id">Kode Kategori</label>

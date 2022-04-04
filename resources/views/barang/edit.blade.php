@@ -19,12 +19,13 @@
                         </a>
                     </div>
                 </div>
-                <form action="/barang/update/{{ $datas->id }}" method="POST" enctype="multipart/form-data">
-                    @csrf    
+                <form action="/barang/update/{{ $barang->id }}" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    @method('PUT')    
                     <div class="row">
                         <div class="form-group col-6 col-md-3 col-lg-3">    
                             <label class="control-label" for="id">Kode Barang</label>
-                            <input type="text" name="id" class="form-control" value="{{ $datas->id }}">
+                            <input type="number" name="id" class="form-control" value="{{ $barang->id }}">
                             <div class="text-danger">
                                @error('id')
                                    {{ $message }}
@@ -33,7 +34,7 @@
                         </div>
                         <div class="form-group col-6 col-md-3 col-lg-3">    
                                 <label class="control-label" for="name">Nama Barang</label>
-                                <input type="text" name="name" class="form-control" value="{{ $datas->name }}">
+                                <input type="text" name="name" class="form-control" value="{{ $barang->name }}">
                                 <div class="text-danger">
                                     @error('name')
                                         {{ $message }}
@@ -44,7 +45,7 @@
                     <div class="row">
                         <div class="form-group col-6 col-md-3 col-lg-3">
                             <label class="control-label" for="stok">Stok Barang</label>
-                            <input type="number" name="stok" class="form-control" value="{{ $datas->stok }}">
+                            <input type="number" name="stok" class="form-control" value="{{ $barang->stok }}">
                             <div class="text-danger">
                                @error('stok')
                                    {{ $message }}
@@ -52,15 +53,15 @@
                             </div>
                         </div>
                         <div class="form-group col-6 col-md-3 col-lg-3">
-                            <label class="control-label" for="k_name">Kategori Barang</label>
-                            <select name="k_name" class="form-control">
+                            <label class="control-label" for="k_name">Pilih Kategori Barang</label>
+                            <select name="kategori_id" class="form-control">
                                 <option disabled> Semua Kategori </option>
                                 @foreach ($kategoris as $data)
                                 <option value="{{ $data->id }}">{{ $data->name }}</option> 
                                 @endforeach
                             </select>
                             <div class="text-danger">
-                               @error('kategori')
+                               @error('kategori_id')
                                    {{ $message }}
                                @enderror
                             </div>
@@ -68,38 +69,37 @@
                     </div>
                     <div class="row">
                         <div class="form-group col-6 col-md-3 col-lg-3">
-                            <label class="control-label" for="s_name">Satuan Barang</label>
-                            <select name="s_name" class="form-control">
+                            <label class="control-label" for="s_name">Pilih Satuan Barang</label>
+                            <select name="satuan_id" class="form-control">
                                 <option disabled> Satuan Barang </option>
                                 @foreach ($satuans as $data)
                                 <option value="{{ $data->id }}">{{ $data->name }}</option> 
                                 @endforeach
                             </select>
                             <div class="text-danger">
-                               @error('satuan')
+                               @error('satuan_id')
                                    {{ $message }}
                                @enderror
                             </div>
                         </div>
-                        <div class="col-sm-12">
-                            <div class="col-sm-6">
-
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="form-group col-6 col-md-3 col-lg-3">
-                                    <label class="control-label" for="file">Gambar Barang</label>
-                                    <input type="file" name="file" class="form-control" value="{{ $datas->$file }}">
-                                        <div class="text-danger">
-                                        @error('file')
-                                            {{ $message }}
-                                        @enderror
-                                    </div>
-                                </div>
+                        <div class="form-group col-6 col-md-3 col-lg-3">
+                            <label class="control-label" for="file">Ganti Gambar Barang</label>
+                            <input type="file" name="file" class="form-control">
+                            <div class="text-danger">
+                                @error('file')
+                                    {{ $message }}
+                                @enderror
                             </div>
                         </div>
                     </div>
+                    <div class="row">
+                        <div class="form-group col-6 col-md-3 col-lg-3">
+                            <label class="control-label" for="s_name">Foto Gambar Barang Sebelumnya</label>
+                            <img src="{{ url('img/barang/'.$barang->file) }}" width="200px" alt="">
+                        </div>
+                    </div>
                     <div class="form-group">
-                        <button class="btn btn-primary btn-sm">Simpan</button>
+                    <input type="submit"  value="Simpan" class="btn btn-primary">
                     </div>
                 </form>
             </div>

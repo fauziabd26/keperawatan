@@ -52,8 +52,8 @@ class BarangController extends Controller
         'id'            => 'required|unique:barangs,id|max:255',
         'name'          => 'required',
         'stok'          => 'required',
-        'kategori'      => 'required',
-        'satuan'        => 'required',
+        'kategori_id'      => 'required',
+        'satuan_id'        => 'required',
         'file'          => 'required|mimes:jpeg,jpg,png|max:2048kb',
         ],[
             'id.required'       =>'id tidak boleh kosong',
@@ -61,8 +61,8 @@ class BarangController extends Controller
             'id.max'            =>'id max 255 karakter',
             'name.required'     =>'Nama Barang tidak boleh kosong',
             'stok.required'     =>'stok tidak boleh kosong',
-            'kategori.required' =>'Kategori Barang tidak boleh kosong',
-            'satuan.required'   =>'Satuan Barang tidak boleh kosong',
+            'kategori_id.required' =>'Kategori Barang tidak boleh kosong',
+            'satuan_id.required'   =>'Satuan Barang tidak boleh kosong',
             'file.required'     =>'Gambar Barang tidak boleh kosong',
             'file.mimes'        =>'Format gambar harus jpeg/jpg/png',
             'file.max'          =>'Ukuran Max Foto Barang 2 Mb',
@@ -106,7 +106,9 @@ class BarangController extends Controller
     public function edit(barang $barang, $id)
     {
         $barang = Barang::findOrFail($id);
-        return view('barang.edit',compact('barang'));
+        $kategoris = Kategori::all();
+        $satuans = Satuan::all();
+        return view('barang.edit',compact('barang','kategoris','satuans'));
     }
 
     /**
@@ -116,44 +118,45 @@ class BarangController extends Controller
      * @param  \App\Models\barang  $barang
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, barang $barang)
+    public function update(Request $request, barang $barang, $id)
     {
         Request()->validate([
-            'id'            => 'required|unique:barangs,id|max:255',
+            'id'            => 'required|max:255',
             'name'          => 'required',
             'stok'          => 'required',
             'kategori'      => 'required',
             'satuan'        => 'required',
-            'file'          => 'required|mimes:jpeg,jpg,png|max:2048kb',
+            'file'          => 'mimes:jpeg,jpg,png|max:2048kb',
             ],[
                 'id.required'       =>'id tidak boleh kosong',
-                'id.unique'         =>'id sudah terpakai',
                 'id.max'            =>'id max 255 karakter',
                 'name.required'     =>'Nama Barang tidak boleh kosong',
                 'stok.required'     =>'stok tidak boleh kosong',
                 'kategori.required' =>'Kategori Barang tidak boleh kosong',
                 'satuan.required'   =>'Satuan Barang tidak boleh kosong',
-                'file.required'     =>'Gambar Barang tidak boleh kosong',
                 'file.mimes'        =>'Format gambar harus jpeg/jpg/png',
                 'file.max'          =>'Ukuran Max Foto Barang 2 Mb',
     
             ]);
-    
-            //upload gambar
-            $file = Request()->file;
-            $fileName = Request ()->id .'.'. $file->extension();
-            $file->move(public_path('img/barang'), $fileName);
-    
             $datas = [
                 'id'            => Request()->id,
                 'name'          => Request()->name,
                 'stok'          => Request()->stok,
                 'kategori_id'   => Request()->kategori_id,
                 'satuan_id'     => Request()->satuan_id,
-                'file'          => $fileName,
             ];
-            $this->Barang->addData($datas);
-            return redirect()->route('index_barang')->with('pesan','Data Berhasil Disimpan');
+            if (empty($request->file('file')))
+            {
+                $barang->file = $barang->file;
+            }
+            else{
+                
+                $file = Request()->file;
+                $fileName = Request ()->id .'.'. $file->extension();
+                $file->move(public_path('img/barang/'), $fileName);
+            }
+            $this->Barang->editData($id, $datas);
+            return redirect()->route('index_barang')->with('pesan','Data Berhasil Diupdate');
     }
 
     /**
@@ -162,8 +165,14 @@ class BarangController extends Controller
      * @param  \App\Models\barang  $barang
      * @return \Illuminate\Http\Response
      */
-    public function destroy(barang $barang)
+    public function destroy(barang $barang, $id)
     {
-        //
+        try {
+            $barang = Barang::find($id);
+            $barang->delete();
+            return redirect('/barang')->with('delete', 'Data Berhasil Dihapus');
+        } catch (\Throwable $th) {
+            return redirect('/barang')->withErrors('Data gagal Dihapus');
+        }
     }
 }
