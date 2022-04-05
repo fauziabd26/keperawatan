@@ -46,7 +46,7 @@ Route::get('/kategori', [KategoriController::class, 'index'])->name('index_kateg
 Route::get('/kategori/add', [KategoriController::class, 'create'])->name('tambah_kategori');
 Route::post('/kategori/post', [KategoriController::class, 'store'])->name('post_kategori');
 Route::get('/kategori/edit/{id}', [KategoriController::class, 'edit'])->name('edit_kategori');
-Route::put('/kategori/post/{id}', [KategoriController::class, 'update'])->name('update_kategori');
+Route::put('/kategori/update/{id}', [KategoriController::class, 'update'])->name('update_kategori');
 Route::get('/kategori/delete{id}', [KategoriController::class, 'destroy'])->name('destroy_kategori');
 
 
@@ -56,7 +56,7 @@ Route::get('/satuan', [SatuanController::class, 'index'])->name('index_satuan');
 Route::get('/satuan/add', [SatuanController::class, 'create'])->name('tambah_satuan');
 Route::post('/satuan/post', [SatuanController::class, 'store'])->name('post_satuan');
 Route::get('/satuan/edit/{id}', [SatuanController::class, 'edit'])->name('edit_satuan');
-Route::put('/satuan/post/{id}', [SatuanController::class, 'update'])->name('update_satuan');
+Route::put('/satuan/update/{id}', [SatuanController::class, 'update'])->name('update_satuan');
 Route::get('/satuan/delete{id}', [SatuanController::class, 'destroy'])->name('destroy_satuan');
 
 

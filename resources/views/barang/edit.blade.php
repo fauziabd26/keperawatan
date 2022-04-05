@@ -20,8 +20,8 @@
                     </div>
                 </div>
                 <form action="/barang/update/{{ $barang->id }}" method="POST" enctype="multipart/form-data">
-                    @csrf
                     @method('PUT')    
+                    @csrf
                     <div class="row">
                         <div class="form-group col-6 col-md-3 col-lg-3">    
                             <label class="control-label" for="id">Kode Barang</label>
@@ -98,9 +98,9 @@
                             <img src="{{ url('img/barang/'.$barang->file) }}" width="200px" alt="">
                         </div>
                     </div>
-                    <div class="form-group">
-                    <input type="submit"  value="Simpan" class="btn btn-primary">
-                    </div>
+                        <div class="form-group">
+                            <input type="submit"  value="Simpan" class="btn btn-primary">
+                        </div>
                 </form>
             </div>
         </div>

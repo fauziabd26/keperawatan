@@ -1,9 +1,9 @@
 <div class="main-sidebar">
         <aside id="sidebar-wrapper">
           <div class="sidebar-brand">
-            <a href="/"><h3> Sistem Informasi Keperawatan</h3></a>
+            <a href="/"><h3> Sistem Informasi Laboratorium Keperawatan</h3></a>
           <a href="/"><img src="{{URL::asset('stisla/img/polindra.png')}}" alt="profile Pic" height="200" width="200">
-            SIPER</a>
+            "SILK"</a>
           </div>
           <ul class="sidebar-menu">
               <li class="menu-header">Dashboard</li>

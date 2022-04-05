@@ -51,29 +51,29 @@ class BarangController extends Controller
         Request()->validate([
         'id'            => 'required|unique:barangs,id|max:255',
         'name'          => 'required',
-        'stok'          => 'required',
-        'kategori_id'      => 'required',
-        'satuan_id'        => 'required',
+        'stok'          => 'required|min:0',
+        'kategori_id'   => 'required',
+        'satuan_id'     => 'required',
         'file'          => 'required|mimes:jpeg,jpg,png|max:2048kb',
         ],[
-            'id.required'       =>'id tidak boleh kosong',
-            'id.unique'         =>'id sudah terpakai',
-            'id.max'            =>'id max 255 karakter',
-            'name.required'     =>'Nama Barang tidak boleh kosong',
-            'stok.required'     =>'stok tidak boleh kosong',
-            'kategori_id.required' =>'Kategori Barang tidak boleh kosong',
-            'satuan_id.required'   =>'Satuan Barang tidak boleh kosong',
-            'file.required'     =>'Gambar Barang tidak boleh kosong',
-            'file.mimes'        =>'Format gambar harus jpeg/jpg/png',
-            'file.max'          =>'Ukuran Max Foto Barang 2 Mb',
+            'id.required'           =>'id tidak boleh kosong',
+            'id.unique'             =>'id sudah terpakai',
+            'id.max'                =>'id max 255 karakter',
+            'name.required'         =>'Nama Barang tidak boleh kosong',
+            'stok.required'         =>'stok tidak boleh kosong',
+            'stok.min'              =>'stok minimal 0',
+            'kategori_id.required'  =>'Kategori Barang tidak boleh kosong',
+            'satuan_id.required'    =>'Satuan Barang tidak boleh kosong',
+            'file.required'         =>'Gambar Barang tidak boleh kosong',
+            'file.mimes'            =>'Format gambar harus jpeg/jpg/png',
+            'file.max'              =>'Ukuran Max Foto Barang 2 Mb',
 
         ]);
-
         //upload gambar
-        $file = Request()->file;
+        $file = $request->file('file');
         $fileName = Request ()->id .'.'. $file->extension();
-        $file->move(public_path('img/barang'), $fileName);
-
+        $file->move('img/barang/',$fileName);
+        
         $datas = [
             'id'            => Request()->id,
             'name'          => Request()->name,
@@ -82,6 +82,9 @@ class BarangController extends Controller
             'satuan_id'     => Request()->satuan_id,
             'file'          => $fileName,
         ];
+        if ($datas['int']<=0) {
+            return false;
+        }
         $this->Barang->addData($datas);
         return redirect()->route('index_barang')->with('pesan','Data Berhasil Disimpan');
     }
@@ -124,16 +127,16 @@ class BarangController extends Controller
             'id'            => 'required|max:255',
             'name'          => 'required',
             'stok'          => 'required',
-            'kategori'      => 'required',
-            'satuan'        => 'required',
+            'kategori_id'   => 'required',
+            'satuan_id'     => 'required',
             'file'          => 'mimes:jpeg,jpg,png|max:2048kb',
             ],[
                 'id.required'       =>'id tidak boleh kosong',
                 'id.max'            =>'id max 255 karakter',
                 'name.required'     =>'Nama Barang tidak boleh kosong',
                 'stok.required'     =>'stok tidak boleh kosong',
-                'kategori.required' =>'Kategori Barang tidak boleh kosong',
-                'satuan.required'   =>'Satuan Barang tidak boleh kosong',
+                'kategori_id.required' =>'Kategori Barang tidak boleh kosong',
+                'satuan_id.required'   =>'Satuan Barang tidak boleh kosong',
                 'file.mimes'        =>'Format gambar harus jpeg/jpg/png',
                 'file.max'          =>'Ukuran Max Foto Barang 2 Mb',
     
@@ -150,10 +153,13 @@ class BarangController extends Controller
                 $barang->file = $barang->file;
             }
             else{
-                
-                $file = Request()->file;
-                $fileName = Request ()->id .'.'. $file->extension();
-                $file->move(public_path('img/barang/'), $fileName);
+            
+            $destinationPath = 'img/barang/'.$barang->file;
+            Barang::destroy($destinationPath.'img/barang'.$barang->file);
+            $file = $request->file('file');
+            $fileName = Request ()->id .'.'. $file->extension();
+            $file->move('img/barang/',$fileName);
+            $barang->file = $fileName;
             }
             $this->Barang->editData($id, $datas);
             return redirect()->route('index_barang')->with('pesan','Data Berhasil Diupdate');
