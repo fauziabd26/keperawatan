@@ -23,15 +23,16 @@
                 <ul class="dropdown-menu">
                 <li class="menu-header">Pilih Menu</li>
                   <li><a class="nav-link" href="{{ route('index_barang') }}">Data Barang</a></li>
+                  <li><a class="nav-link" href="{{ route('index_barang') }}">Data Barang</a></li>
                   <li><a class="nav-link" href="{{ route('index_kategori') }}">Kategori Barang</a></li>
-                  <li><a class="nav-link" href="{{ route('index_satuan') }}">Satuan Barang</a></li>
+                  <li><a class="nav-link" href="{{ route('index_barang_masuk') }}">Data Barang Masuk</a></li>
                 </ul>
               </li>
               <li class="nav-item dropdown">
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-file"></i></i> <span>Laporan</span></a>
                 <ul class="dropdown-menu">
                 <li class="menu-header">Pilih Menu</li>
-                  <li><a class="nav-link" href="layout-default.html">Laporan Barang</a></li>
+                  <li><a class="nav-link" href="#">Laporan Barang</a></li>
                 </ul>
               </li>
             </ul>

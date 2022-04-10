@@ -46,7 +46,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
   <script src="{{asset('stisla')}}/assets/js/stisla.js"></script>
 
-  <!-- JS Libraies -->
+  <!-- JS Libraries -->
   <script src="{{asset('stisla')}}/node_modules/simpleweather/jquery.simpleWeather.min.js"></script>
   <script src="{{asset('stisla')}}/node_modules/chart.js/dist/Chart.min.js"></script>
   <script src="{{asset('stisla')}}/node_modules/jqvmap/dist/jquery.vmap.min.js"></script>

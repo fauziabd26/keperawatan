@@ -3,10 +3,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\DB;
 
 class Barang extends Model
 {
+    use SoftDeletes, HasFactory;
+	protected $fillable=['id','name','stok','file','kategori_id','satuan_id'];
     public function allData()
     {
         return DB::table('barangs')
@@ -24,5 +27,10 @@ class Barang extends Model
         ->where('id',$id)
         ->update($datas);
     }
+    public function barang_masuks()
+    {
+        return $this->hasMany('App\Models\BarangMasuk');
+    }
+    protected $hidden;
 
 }

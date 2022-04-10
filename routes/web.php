@@ -59,5 +59,13 @@ Route::get('/satuan/edit/{id}', [SatuanController::class, 'edit'])->name('edit_s
 Route::put('/satuan/update/{id}', [SatuanController::class, 'update'])->name('update_satuan');
 Route::get('/satuan/delete{id}', [SatuanController::class, 'destroy'])->name('destroy_satuan');
 
+//Route Barang Masuk
+use App\Http\Controllers\BarangMasukController;
+Route::get('/barang_masuk', [BarangMasukController::class, 'index'])->name('index_barang_masuk');
+Route::get('/barang_masuk/add', [BarangMasukController::class, 'create'])->name('tambah_barang_masuk');
+Route::post('/barang_masuk/post', [BarangMasukController::class, 'store'])->name('post_barang_masuk');
+Route::get('/barang_masuk/edit/{id}', [BarangMasukController::class, 'edit'])->name('edit_barang_masuk');
+Route::put('/barang_masuk/update/{id}', [BarangMasukController::class, 'update'])->name('update_barang_masuk');
+Route::get('/barang_masuk/delete{id}', [BarangMasukController::class, 'destroy'])->name('destroy_barang_masuk');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

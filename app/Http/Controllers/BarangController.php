@@ -56,9 +56,9 @@ class BarangController extends Controller
         'satuan_id'     => 'required',
         'file'          => 'required|mimes:jpeg,jpg,png|max:2048kb',
         ],[
-            'id.required'           =>'id tidak boleh kosong',
-            'id.unique'             =>'id sudah terpakai',
-            'id.max'                =>'id max 255 karakter',
+            'id.required'           =>'Kode Barang tidak boleh kosong',
+            'id.unique'             =>'Kode Barang sudah terpakai',
+            'id.max'                =>'Kode Barang max 255 karakter',
             'name.required'         =>'Nama Barang tidak boleh kosong',
             'stok.required'         =>'stok tidak boleh kosong',
             'stok.min'              =>'stok minimal 0',
@@ -82,9 +82,6 @@ class BarangController extends Controller
             'satuan_id'     => Request()->satuan_id,
             'file'          => $fileName,
         ];
-        if ($datas['int']<=0) {
-            return false;
-        }
         $this->Barang->addData($datas);
         return redirect()->route('index_barang')->with('pesan','Data Berhasil Disimpan');
     }
@@ -154,12 +151,12 @@ class BarangController extends Controller
             }
             else{
             
-            $destinationPath = 'img/barang/'.$barang->file;
-            Barang::destroy($destinationPath.'img/barang'.$barang->file);
-            $file = $request->file('file');
-            $fileName = Request ()->id .'.'. $file->extension();
-            $file->move('img/barang/',$fileName);
-            $barang->file = $fileName;
+                $destinationPath = 'img/barang/'.$barang->file;
+                Barang::destroy($destinationPath.'img/barang'.$barang->file);
+                $file = $request->file('file');
+                $fileName = Request ()->id .'.'. $file->extension();
+                $file->move('img/barang/',$fileName);
+                $barang->file = $fileName;
             }
             $this->Barang->editData($id, $datas);
             return redirect()->route('index_barang')->with('pesan','Data Berhasil Diupdate');
