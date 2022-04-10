@@ -69,3 +69,26 @@ Route::put('/barang_masuk/update/{id}', [BarangMasukController::class, 'update']
 Route::get('/barang_masuk/delete{id}', [BarangMasukController::class, 'destroy'])->name('destroy_barang_masuk');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+//Route Peminjaman
+use App\Http\Controllers\PeminjamanController;
+Route::get('Peminjaman', [PeminjamanController::class, 'index']);
+
+//Route Pengembalian
+use App\Http\Controllers\PengembalianController;
+Route::get('Pengembalian', [PengembalianController::class, 'index']);
+
+//Route Pengguna Mahasiswa
+use App\Http\Controllers\PenggunaController;
+Route::get('PenggunaMahasiswa', [PenggunaController::class, 'index']);
+Route::post('PenggunaMahasiswa/add', [PenggunaController::class, 'store']);
+
+Route::get('PenggunaMahasiswaPengembalian', [PenggunaController::class, 'indexPengembalian']);
+
+//Route Pengguna Dosen
+Route::get('PenggunaDosen', [PenggunaController::class, 'indexdosen']);
+Route::post('PenggunaDosen/add', [PenggunaController::class, 'storedosen']);
+
+//Route Aproval
+Route::get('Aproval', [PenggunaController::class, 'indexaproval']);
+Route::post('Aproval/add', [PenggunaController::class, 'storeaproval']);

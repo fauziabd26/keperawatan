@@ -51,6 +51,39 @@
                 </div>
               </div>
             </div>
+<<<<<<< HEAD
+=======
+			<div class="col-lg-3 col-md-6 col-sm-6 col-12">
+              <div class="card card-statistic-1">
+                <div class="card-icon bg-danger">
+                  <i class="far fa-address-book"></i>
+                </div>
+                <div class="card-wrap">
+                  <div class="card-header">
+                    <h4>Data Peminjaman</h4>
+                  </div>
+                  <div class="card-body">
+                  <div class="count">{{$peminjaman}}</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+			<div class="col-lg-3 col-md-6 col-sm-6 col-12">
+              <div class="card card-statistic-1">
+                <div class="card-icon bg-danger">
+                  <i class="far fa-address-book"></i>
+                </div>
+                <div class="card-wrap">
+                  <div class="card-header">
+                    <h4>Data Pengembalian</h4>
+                  </div>
+                  <div class="card-body">
+                  <div class="count">0</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+>>>>>>> 385c8795de4045e5e1eb3a01288031821e770273
             <div class="col-lg-3 col-md-6 col-sm-6 col-12">
               <div class="card card-statistic-1">
                 <div class="card-icon bg-warning">

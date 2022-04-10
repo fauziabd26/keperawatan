@@ -4,7 +4,11 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
+<<<<<<< HEAD
     "content-hash": "d5148d771bd15fc8f8c35f2050762b30",
+=======
+    "content-hash": "c61ff82cbf0142a401a48a8161e1595a",
+>>>>>>> 385c8795de4045e5e1eb3a01288031821e770273
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1322,6 +1326,7 @@
             "time": "2022-01-10T08:52:49+00:00"
         },
         {
+<<<<<<< HEAD
             "name": "laravel/ui",
             "version": "v3.4.5",
             "source": {
@@ -1383,6 +1388,8 @@
             "time": "2022-02-21T14:59:16+00:00"
         },
         {
+=======
+>>>>>>> 385c8795de4045e5e1eb3a01288031821e770273
             "name": "league/commonmark",
             "version": "2.2.3",
             "source": {
@@ -2911,6 +2918,7 @@
             "time": "2021-09-25T23:10:38+00:00"
         },
         {
+<<<<<<< HEAD
             "name": "realrashid/sweet-alert",
             "version": "v5.0.0",
             "source": {
@@ -3001,6 +3009,8 @@
             "time": "2022-02-04T09:38:53+00:00"
         },
         {
+=======
+>>>>>>> 385c8795de4045e5e1eb3a01288031821e770273
             "name": "swiftmailer/swiftmailer",
             "version": "v6.3.0",
             "source": {

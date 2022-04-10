@@ -33,4 +33,5 @@ class Barang extends Model
     }
     protected $hidden;
 
+
 }

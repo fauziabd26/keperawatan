@@ -15,4 +15,5 @@ class satuan extends Model
         DB::table('satuans')->insert($data);
     }
     protected $hidden;
+
 }

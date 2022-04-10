@@ -27,7 +27,6 @@ class BarangController extends Controller
        ];
        return view('barang.index', $datas);
     }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -84,6 +83,7 @@ class BarangController extends Controller
         ];
         $this->Barang->addData($datas);
         return redirect()->route('index_barang')->with('pesan','Data Berhasil Disimpan');
+
     }
 
     /**
@@ -160,8 +160,8 @@ class BarangController extends Controller
             }
             $this->Barang->editData($id, $datas);
             return redirect()->route('index_barang')->with('pesan','Data Berhasil Diupdate');
-    }
 
+    }
     /**
      * Remove the specified resource from storage.
      *

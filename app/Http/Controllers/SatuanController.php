@@ -7,10 +7,13 @@ use Illuminate\Http\Request;
 
 class SatuanController extends Controller
 {
+<<<<<<< HEAD
     public function __construct()
     {
         $this->Satuan = new Satuan();
     }
+=======
+>>>>>>> 385c8795de4045e5e1eb3a01288031821e770273
     /**
      * Display a listing of the resource.
      *
@@ -29,7 +32,11 @@ class SatuanController extends Controller
      */
     public function create()
     {
+<<<<<<< HEAD
         return view('satuan.add');
+=======
+        //
+>>>>>>> 385c8795de4045e5e1eb3a01288031821e770273
     }
 
     /**
@@ -40,6 +47,7 @@ class SatuanController extends Controller
      */
     public function store(Request $request)
     {
+<<<<<<< HEAD
         Request()->validate([
             'id'            => 'required|unique:satuans,id|max:255',
             'name'          => 'required',
@@ -55,6 +63,9 @@ class SatuanController extends Controller
             ];
             $this->Satuan->addData($datas);
             return redirect()->route('index_satuan')->with('pesan','Data Berhasil Disimpan');
+=======
+        //
+>>>>>>> 385c8795de4045e5e1eb3a01288031821e770273
     }
 
     /**
@@ -74,10 +85,16 @@ class SatuanController extends Controller
      * @param  \App\Models\satuan  $satuan
      * @return \Illuminate\Http\Response
      */
+<<<<<<< HEAD
     public function edit($id)
     {
         $satuan = Satuan::findOrFail($id);
         return view('satuan.edit',compact('satuan'));
+=======
+    public function edit(satuan $satuan)
+    {
+        //
+>>>>>>> 385c8795de4045e5e1eb3a01288031821e770273
     }
 
     /**
@@ -87,6 +104,7 @@ class SatuanController extends Controller
      * @param  \App\Models\satuan  $satuan
      * @return \Illuminate\Http\Response
      */
+<<<<<<< HEAD
     public function update(Request $request, satuan $satuan, $id)
     {
         $satuan = Satuan::find($id);
@@ -95,6 +113,11 @@ class SatuanController extends Controller
         $satuan->name   = $request->name;
         $satuan->save();
         return redirect('/satuan')->with('pesan', 'Data berhasil diubah');
+=======
+    public function update(Request $request, satuan $satuan)
+    {
+        //
+>>>>>>> 385c8795de4045e5e1eb3a01288031821e770273
     }
 
     /**
@@ -103,6 +126,7 @@ class SatuanController extends Controller
      * @param  \App\Models\satuan  $satuan
      * @return \Illuminate\Http\Response
      */
+<<<<<<< HEAD
     public function destroy(satuan $satuan, $id)
     {
         try {
@@ -112,5 +136,10 @@ class SatuanController extends Controller
         } catch (\Throwable $th) {
             return redirect('/satuan')->withErrors('Data gagal Dihapus');
         }
+=======
+    public function destroy(satuan $satuan)
+    {
+        //
+>>>>>>> 385c8795de4045e5e1eb3a01288031821e770273
     }
 }

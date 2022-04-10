@@ -4,11 +4,7 @@
   <meta charset="UTF-8">
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
   <link rel="icon" href="{{asset('stisla')}}/img/polindra.png" type="image" sizes="16x16">
-<<<<<<< HEAD
-  <title>SILK &mdash; POLINDRA</title>
-=======
   <title>SIPER &mdash; POLINDRA</title>
->>>>>>> 385c8795de4045e5e1eb3a01288031821e770273
 
   <!-- General CSS Files -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -29,16 +25,16 @@
   <div id="app">
     <div class="main-wrapper">
        <!-- header menu -->
-       @include('layouts.header')
+       @include('layoutMahasiswa.header')
        <!-- sidebar menu -->
-       @include('layouts.sidebar')
+       @include('layoutMahasiswa.sidebar')
       <!-- Main Content -->
       <div class="main-content">
       @show
       @yield('content')
       </div>
        <!-- footer menu -->
-       @include('layouts.footer')
+       @include('layoutMahasiswa.footer')
     </div>
   </div>
 
@@ -50,11 +46,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
   <script src="{{asset('stisla')}}/assets/js/stisla.js"></script>
 
-<<<<<<< HEAD
-  <!-- JS Libraries -->
-=======
   <!-- JS Libraies -->
->>>>>>> 385c8795de4045e5e1eb3a01288031821e770273
   <script src="{{asset('stisla')}}/node_modules/simpleweather/jquery.simpleWeather.min.js"></script>
   <script src="{{asset('stisla')}}/node_modules/chart.js/dist/Chart.min.js"></script>
   <script src="{{asset('stisla')}}/node_modules/jqvmap/dist/jquery.vmap.min.js"></script>

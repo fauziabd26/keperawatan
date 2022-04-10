@@ -16,4 +16,5 @@ class kategori extends Model
         DB::table('kategoris')->insert($data);
     }
     protected $hidden;
+
 }
