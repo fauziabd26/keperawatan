@@ -6,7 +6,6 @@ use App\Models\Barang;
 use App\Models\Kategori;
 use App\Models\Satuan;
 use Illuminate\Http\Request;
-use DB;
 
 class BarangController extends Controller
 {
@@ -170,11 +169,11 @@ class BarangController extends Controller
      */
     public function destroy(barang $barang, $id)
     {
-        try {
+        try{
             $barang = Barang::find($id);
             $barang->delete();
             return redirect('/barang')->with('delete', 'Data Berhasil Dihapus');
-        } catch (\Throwable $th) {
+        }catch (\Throwable $th) {
             return redirect('/barang')->withErrors('Data gagal Dihapus');
         }
     }

@@ -7,13 +7,10 @@ use Illuminate\Http\Request;
 
 class KategoriController extends Controller
 {
-<<<<<<< HEAD
     public function __construct()
     {
         $this->Kategori = new Kategori();
     }
-=======
->>>>>>> 385c8795de4045e5e1eb3a01288031821e770273
     /**
      * Display a listing of the resource.
      *
@@ -32,11 +29,8 @@ class KategoriController extends Controller
      */
     public function create()
     {
-<<<<<<< HEAD
         return view('kategori.add');
-=======
-        //
->>>>>>> 385c8795de4045e5e1eb3a01288031821e770273
+
     }
 
     /**
@@ -47,7 +41,6 @@ class KategoriController extends Controller
      */
     public function store(Request $request)
     {
-<<<<<<< HEAD
         Request()->validate([
             'id'            => 'required|unique:kategoris,id|max:255',
             'name'          => 'required',
@@ -63,9 +56,7 @@ class KategoriController extends Controller
             ];
             $this->Kategori->addData($datas);
             return redirect()->route('index_kategori')->with('pesan','Data Berhasil Disimpan');
-=======
-        //
->>>>>>> 385c8795de4045e5e1eb3a01288031821e770273
+
     }
 
     /**
@@ -85,16 +76,11 @@ class KategoriController extends Controller
      * @param  \App\Models\kategori  $kategori
      * @return \Illuminate\Http\Response
      */
-<<<<<<< HEAD
     public function edit($id)
     {
         $kategori = Kategori::findOrFail($id);
         return view('kategori.edit',compact('kategori'));
-=======
-    public function edit(kategori $kategori)
-    {
-        //
->>>>>>> 385c8795de4045e5e1eb3a01288031821e770273
+
     }
 
     /**
@@ -104,7 +90,6 @@ class KategoriController extends Controller
      * @param  \App\Models\kategori  $kategori
      * @return \Illuminate\Http\Response
      */
-<<<<<<< HEAD
     public function update(Request $request, $id)
     {
         $kategori = Kategori::find($id);
@@ -112,11 +97,7 @@ class KategoriController extends Controller
         $kategori->name = $request->name;
         $kategori->save();
         return redirect('/kategori')->with('pesan', 'Data berhasil diubah');
-=======
-    public function update(Request $request, kategori $kategori)
-    {
-        //
->>>>>>> 385c8795de4045e5e1eb3a01288031821e770273
+
     }
 
     /**
@@ -125,7 +106,6 @@ class KategoriController extends Controller
      * @param  \App\Models\kategori  $kategori
      * @return \Illuminate\Http\Response
      */
-<<<<<<< HEAD
     public function destroy($id)
     {
         try {
@@ -135,10 +115,6 @@ class KategoriController extends Controller
         } catch (\Throwable $th) {
             return redirect('/kategori')->withErrors('Data gagal Dihapus');
         }
-=======
-    public function destroy(kategori $kategori)
-    {
-        //
->>>>>>> 385c8795de4045e5e1eb3a01288031821e770273
+
     }
 }
